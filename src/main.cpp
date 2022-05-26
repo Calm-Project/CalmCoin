@@ -8,12 +8,12 @@
 #include "db.h"
 #include "net.h"
 #include "init.h"
-#include "magimath.h"
+#include "calmmath.h"
 #include "ui_interface.h"
 #include "kernel.h"
 #include "txdb.h"
 #include "scrypt_mine.h"
-#include "magirpc.h"
+#include "calmrpc.h"
 #include <boost/algorithm/string/replace.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
@@ -2072,7 +2072,7 @@ bool CTransaction::ConnectInputs(CTxDB& txdb, MapPrevTx inputs,
 {
     // Take over previous transactions' spent pointers
     // fBlock is true when this is called from AcceptBlock when a new best-block is added to the blockchain
-    // fMiner is true when called from the internal magi miner
+    // fMiner is true when called from the internal calm miner
     // ... both are false when called from CTransaction::AcceptToMemoryPool
     if (!IsCoinBase())
     {
@@ -5290,7 +5290,7 @@ void MagiMiner(CWallet *pwallet, bool fProofOfStake)
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
 
     // Make this thread recognisable as the mining thread
-    RenameThread("magi-miner");
+    RenameThread("calm-miner");
 
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);

@@ -1429,11 +1429,11 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
     <name>QRImageWidget</name>
     <message>
         <source>&amp;Save Image...</source>
-        <translation>&amp;Salva Immagine...</translation>
+        <translation>&amp;Salva Imcalmne...</translation>
     </message>
     <message>
         <source>&amp;Copy Image</source>
-        <translation>&amp;Copia Immagine</translation>
+        <translation>&amp;Copia Imcalmne</translation>
     </message>
     <message>
         <source>Save QR Code</source>
@@ -1441,7 +1441,7 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
     </message>
     <message>
         <source>PNG Image (*.png)</source>
-        <translation>Immagine PNG (*.png)</translation>
+        <translation>Imcalmne PNG (*.png)</translation>
     </message>
 </context>
 <context>
@@ -1834,7 +1834,7 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
     </message>
     <message>
         <source>&amp;Save Image...</source>
-        <translation>&amp;Salva Immagine...</translation>
+        <translation>&amp;Salva Imcalmne...</translation>
     </message>
     <message>
         <source>Request payment to %1</source>

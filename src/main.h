@@ -10,7 +10,7 @@
 #include "net.h"
 #include "script.h"
 #include "scrypt_mine.h"
-#include "hash_magi.h"
+#include "hash_calm.h"
 
 #include <list>
 
@@ -44,8 +44,8 @@ static const int64 COINS_BURNED = 720000 * COIN; // Notes: https://bitcointalk.o
 static const int64 MIN_TX_FEE = .0001 * COIN;
 static const int64 MIN_RELAY_TX_FEE = MIN_TX_FEE;
 static const int64 MAX_MONEY = 25000000 * COIN + COINS_BURNED;  // NOte: the amount of COINS_BURNED is unspendable
-//static const int64 MAX_MONEY_POW_PRM = 10000000 * COIN;	// 10 mil; 5.5 mil in 1st magipow
-//static const int64 MAX_MONEY_POW_END = 15000000 * COIN;	// 15 mil; 5 mil in 2nd magipow
+//static const int64 MAX_MONEY_POW_PRM = 10000000 * COIN;	// 10 mil; 5.5 mil in 1st calmpow
+//static const int64 MAX_MONEY_POW_END = 15000000 * COIN;	// 15 mil; 5 mil in 2nd calmpow
 static const double MAX_MAGI_PROOF_OF_STAKE = 0.05;		// dynamic annual interest, max 5%
 static const double MAX_MAGI_BALANCE_in_STAKE = 0.15;		// balance/money supply, max 15%
 static const int64 MAX_MONEY_STAKE_REF = 5000000 * COIN;	// 5 mil

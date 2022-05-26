@@ -1,7 +1,7 @@
 #include "guiutil.h"
-#include "magiaddressvalidator.h"
+#include "calmaddressvalidator.h"
 #include "walletmodel.h"
-#include "magiunits.h"
+#include "calmunits.h"
 #include "util.h"
 #include "init.h"
 
@@ -280,11 +280,11 @@ void openConfigfile()
 {
     boost::filesystem::path pathConfig = GetConfigFile();
 
-    /* Open magi.conf with the associated application */
+    /* Open calm.conf with the associated application */
     if (! boost::filesystem::exists(pathConfig))
     {
         boost::filesystem::ofstream ofs(pathConfig);
-        ofs << "# example: http://m-core.org/bin/example-conf/magi.conf \n";
+        ofs << "# example: http://m-core.org/bin/example-conf/calm.conf \n";
         ofs << "# this configuration file allows a user to load runtime options when the program starts\n";
     }
     if (boost::filesystem::exists(pathConfig))
@@ -488,7 +488,7 @@ HelpMessageBox::HelpMessageBox(QWidget *parent) :
     header = tr("Magi-Qt") + " " + tr("version") + " " +
         QString::fromStdString(FormatFullVersion()) + "\n\n" +
         tr("Usage:") + "\n" +
-        "  magi-qt [" + tr("command-line options") + "]                     " + "\n";
+        "  calm-qt [" + tr("command-line options") + "]                     " + "\n";
 
     coreOptions = QString::fromStdString(HelpMessage());
 
@@ -539,7 +539,7 @@ QPriceInfo::QPriceInfo()
     rPriceInUSD = 0.;
     // url (temporary) for checking price
     BTCPriceCheckURL = QUrl("https://api.coinmarketcap.com/v1/ticker/bitcoin/");
-    MagiToUSDPriceCheckURL = QUrl("https://api.coinmarketcap.com/v1/ticker/magi/");
+    MagiToUSDPriceCheckURL = QUrl("https://api.coinmarketcap.com/v1/ticker/calm/");
 
     connect(&mCheckUSDPrice, SIGNAL (finished(QNetworkReply*)), this, SLOT (updatePriceInUSD(QNetworkReply*)));
     connect(&mCheckBTCPrice, SIGNAL (finished(QNetworkReply*)), this, SLOT (updatePriceInBTC(QNetworkReply*)));

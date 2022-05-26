@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # W.J. van der Laan, 2011
 # Make spinning .mng animation from a .png
-# Requires imagemagick 6.7+
+# Requires imagecalmck 6.7+
 from __future__ import division
 from os import path
 from PIL import Image

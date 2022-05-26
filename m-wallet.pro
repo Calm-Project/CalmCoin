@@ -117,13 +117,13 @@ contains(BITCOIN_NEED_QT_PLUGINS, 1) {
 INCLUDEPATH += src/leveldb/include src/leveldb/helpers
 LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
 SOURCES += src/txdb.cpp \
-    src/qt/magi.cpp \
-    src/qt/magiaddressvalidator.cpp \
-    src/qt/magiamountfield.cpp \
-    src/qt/magigui.cpp \
-    src/qt/magistrings.cpp \
-    src/qt/magiunits.cpp \
-    src/magirpc.cpp \
+    src/qt/calm.cpp \
+    src/qt/calmaddressvalidator.cpp \
+    src/qt/calmamountfield.cpp \
+    src/qt/calmgui.cpp \
+    src/qt/calmstrings.cpp \
+    src/qt/calmunits.cpp \
+    src/calmrpc.cpp \
     src/clientversion.cpp \
     src/qt/utilitydialog.cpp
 !win32 {
@@ -209,7 +209,7 @@ HEADERS += \
     src/script.h \
     src/init.h \
     src/mruset.h \
-    src/magimath.h \
+    src/calmmath.h \
     src/json/json_spirit_writer_template.h \
     src/json/json_spirit_writer.h \
     src/json/json_spirit_value.h \
@@ -250,7 +250,7 @@ HEADERS += \
     src/version.h \
     src/netbase.h \
     src/clientversion.h \
-    src/hash_magi.h \
+    src/hash_calm.h \
     src/hash/sph_types.h \
     src/hash/sph_keccak.h \
     src/hash/sph_haval.h \
@@ -258,11 +258,11 @@ HEADERS += \
     src/hash/sph_sha2.h \
     src/hash/sph_tiger.h \
     src/hash/sph_whirlpool.h \
-    src/qt/magiaddressvalidator.h \
-    src/qt/magiamountfield.h \
-    src/qt/magigui.h \
-    src/qt/magiunits.h \
-    src/magirpc.h \
+    src/qt/calmaddressvalidator.h \
+    src/qt/calmamountfield.h \
+    src/qt/calmgui.h \
+    src/qt/calmunits.h \
+    src/calmrpc.h \
     src/qt/utilitydialog.h
 
 SOURCES += \
@@ -289,7 +289,7 @@ SOURCES += \
     src/addrman.cpp \
     src/db.cpp \
     src/walletdb.cpp \
-    src/magimath.cpp \
+    src/calmmath.cpp \
     src/qt/clientmodel.cpp \
     src/qt/guiutil.cpp \
     src/qt/transactionrecord.cpp \
@@ -333,7 +333,7 @@ SOURCES += \
     src/hash/whirlpool.cpp
 
 RESOURCES += \
-    src/qt/magi.qrc
+    src/qt/calm.qrc
 
 FORMS += \
     src/qt/forms/coincontroldialog.ui \
@@ -369,7 +369,7 @@ DEFINES += BITCOIN_QT_TEST
 CODECFORTR = UTF-8
 
 # for lrelease/lupdate
-# also add new translations to src/qt/magi.qrc under translations/
+# also add new translations to src/qt/calm.qrc under translations/
 TRANSLATIONS = $$files(src/qt/locale/bitcoin_*.ts)
 
 isEmpty(QMAKE_LRELEASE) {
@@ -389,7 +389,7 @@ QMAKE_EXTRA_COMPILERS += TSQM
 OTHER_FILES += README.md \
     doc/*.rst \
     doc/*.txt doc/README \
-    src/qt/res/magi-qt.rc \
+    src/qt/res/calm-qt.rc \
     src/test/*.cpp \
     src/test/*.h \
     src/qt/test/*.cpp \
@@ -426,7 +426,7 @@ isEmpty(BOOST_INCLUDE_PATH) {
 }
 
 windows:DEFINES += WIN32
-windows:RC_FILE = src/qt/res/magi-qt.rc
+windows:RC_FILE = src/qt/res/calm-qt.rc
 
 windows:!contains(MINGW_THREAD_BUGFIX, 0) {
     # At least qmake's win32-g++-cross profile is missing the -lmingwthrd
@@ -448,7 +448,7 @@ macx:HEADERS += src/qt/macdockiconhandler.h src/qt/macnotificationhandler.h
 macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm src/qt/macnotificationhandler.mm
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit -framework CoreServices
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
-macx:ICON = src/qt/res/icons/magi.icns
+macx:ICON = src/qt/res/icons/calm.icns
 macx:QMAKE_CFLAGS_THREAD += -pthread
 macx:QMAKE_LFLAGS_THREAD += -pthread
 macx:QMAKE_CXXFLAGS_THREAD += -pthread

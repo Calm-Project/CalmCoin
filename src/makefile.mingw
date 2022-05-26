@@ -84,7 +84,7 @@ OBJS= \
     obj/main.o \
     obj/net.o \
     obj/protocol.o \
-    obj/magirpc.o \
+    obj/calmrpc.o \
     obj/rpcdump.o \
     obj/rpcnet.o \
     obj/rpcmining.o \
@@ -106,13 +106,13 @@ OBJS= \
     obj/sha2big.o \
     obj/tiger.o \
     obj/whirlpool.o \
-    obj/magimath.o \
+    obj/calmmath.o \
     obj/txdb.o
 
-all: magid.exe
+all: calmd.exe
 
-#test check: test_magi.exe FORCE
-#    test_magi.exe
+#test check: test_calm.exe FORCE
+#    test_calm.exe
 
 #
 # LevelDB support
@@ -136,7 +136,7 @@ obj/%.o: hash/%.cpp $(HEADERS)
 obj/%.o: hash/%.c $(HEADERS)
 	$(CXX) -c $(CFLAGS) -fpermissive -o $@ $<
 
-magid.exe: $(OBJS:obj/%=obj/%)
+calmd.exe: $(OBJS:obj/%=obj/%)
 	g++ $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS)
 
 TESTOBJS := $(patsubst test/%.cpp,obj-test/%.o,$(wildcard test/*.cpp))
@@ -144,11 +144,11 @@ TESTOBJS := $(patsubst test/%.cpp,obj-test/%.o,$(wildcard test/*.cpp))
 obj-test/%.o: test/%.cpp $(HEADERS)
 	g++ -c $(TESTDEFS) $(CFLAGS) -o $@ $<
 
-test_magi.exe: $(TESTOBJS) $(filter-out obj/init.o,$(OBJS:obj/%=obj/%))
+test_calm.exe: $(TESTOBJS) $(filter-out obj/init.o,$(OBJS:obj/%=obj/%))
 	g++ $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ -lboost_unit_test_framework $(LIBS)
 
 clean:
-	-del /Q magid.exe test_magi.exe
+	-del /Q calmd.exe test_calm.exe
 	-del /Q obj\*
 	-del /Q obj-test\*
 

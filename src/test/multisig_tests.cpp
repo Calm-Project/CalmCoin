@@ -78,7 +78,7 @@ BOOST_AUTO_TEST_CASE(multisig_verify)
 
     // Test a AND b:
     keys.clear();
-    keys += key[0],key[1]; // magic operator+= from boost.assign
+    keys += key[0],key[1]; // calmc operator+= from boost.assign
     s = sign_multisig(a_and_b, keys, txTo[0], 0);
     BOOST_CHECK(VerifyScript(s, a_and_b, txTo[0], 0, true, 0));
 

@@ -1,7 +1,7 @@
 #include "qrcodedialog.h"
 #include "ui_qrcodedialog.h"
 
-#include "magiunits.h"
+#include "calmunits.h"
 #include "guiconstants.h"
 #include "guiutil.h"
 #include "optionsmodel.h"

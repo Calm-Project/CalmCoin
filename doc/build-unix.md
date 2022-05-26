@@ -1,6 +1,6 @@
 Copyright (c) 2009-2012 Bitcoin Developers
 
-Copyright (c) 2014-2015 Magi Developers
+Copyright (c) 2014-2015 Calmcoin Developers
 
 Distributed under the MIT/X11 software license, see the accompanying file license.txt or http://www.opensource.org/licenses/mit-license.php. This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/).  This product includes cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP
 software written by Thomas Bernard.
@@ -8,33 +8,33 @@ software written by Thomas Bernard.
 UNIX BUILD NOTES
 ================
 
-It is recommeded to use Berkeley DB 4.8 for building Magi wallet (see the following instructions) as well as OpenSSL 1.0.x. 
+It is recommeded to use Berkeley DB 4.8 for building Calmcoin wallet (see the following instructions) as well as OpenSSL 1.0.x. 
 
-Build magid
+Build calmd
 ================
 
 To Build On i386, amd64
 --------
 	cd src/
-	make -f makefile.unix                          # Headless magi
+	make -f makefile.unix                          # Headless calm
 
 To Build On armv6l
 --------
 	cd src/
-	make -f makefile.unix xCPUARCH=armv6l           # Headless magi
+	make -f makefile.unix xCPUARCH=armv6l           # Headless calm
 
 To Build On armv7l
 --------
 	cd src/
-	make -f makefile.unix xCPUARCH=armv7l           # Headless magi
+	make -f makefile.unix xCPUARCH=armv7l           # Headless calm
 
 The release is built with GCC and then "strip bitcoind" to strip the debug symbols, which reduces the executable size by about 90%.
 
-Build magi-qt
+Build calm-qt
 ================
 
-See readme-qt.rst for instructions on building Magi-QT. In general, the QT wallet can be built through following commands (provided dependencies are properly installed):
-	qmake magi-qt.pro
+See readme-qt.rst for instructions on building Calmcoin-QT. In general, the QT wallet can be built through following commands (provided dependencies are properly installed):
+	qmake calm-qt.pro
 	make
 
 To compile Berkeley DB 4.8 on your own:
@@ -52,7 +52,7 @@ sudo make install
 ```
 Then Build Qt wallet with explicit DB paths:
 
-	qmake magi-qt.pro BDB_INCLUDE_PATH=/opt/local/db-4.8.30.NC/include BDB_LIB_PATH=/opt/local/db-4.8.30.NC/lib BDB_LIB_SUFFIX=-4.8
+	qmake calm-qt.pro BDB_INCLUDE_PATH=/opt/local/db-4.8.30.NC/include BDB_LIB_PATH=/opt/local/db-4.8.30.NC/lib BDB_LIB_SUFFIX=-4.8
 	make
 
 

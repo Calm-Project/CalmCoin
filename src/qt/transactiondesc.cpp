@@ -1,7 +1,7 @@
 #include "transactiondesc.h"
 
 #include "guiutil.h"
-#include "magiunits.h"
+#include "calmunits.h"
 
 #include "main.h"
 #include "wallet.h"

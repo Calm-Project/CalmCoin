@@ -1073,7 +1073,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Windows < Vista: C:\Documents and Settings\Username\Application Data\Magi
     // Windows >= Vista: C:\Users\Username\AppData\Roaming\Magi
     // Mac: ~/Library/Application Support/Magi
-    // Unix: ~/.magi
+    // Unix: ~/.calm
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "Magi";
@@ -1091,7 +1091,7 @@ boost::filesystem::path GetDefaultDataDir()
     return pathRet / "Magi";
 #else
     // Unix
-    return pathRet / ".magi";
+    return pathRet / ".calm";
 #endif
 #endif
 }
@@ -1133,7 +1133,7 @@ const boost::filesystem::path &GetDataDir(bool fNetSpecific)
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "magi.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "calm.conf"));
     if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir(false) / pathConfigFile;
     return pathConfigFile;
 }
@@ -1164,7 +1164,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "magid.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "calmd.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }

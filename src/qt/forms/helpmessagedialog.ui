@@ -52,7 +52,7 @@
         </size>
        </property>
        <property name="pixmap">
-        <pixmap resource="../magi.qrc">:/images/about</pixmap>
+        <pixmap resource="../calm.qrc">:/images/about</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -164,7 +164,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../magi.qrc"/>
+  <include location="../calm.qrc"/>
  </resources>
  <connections>
   <connection>

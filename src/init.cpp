@@ -4,7 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include "init.h"
 #include "walletdb.h"
-#include "magirpc.h"
+#include "calmrpc.h"
 #include "txdb.h"
 #include "net.h"
 #include "util.h"
@@ -60,7 +60,7 @@ void Shutdown(void* parg)
     static bool fTaken;
 
     // Make this thread recognisable as the shutdown thread
-    RenameThread("magi-shutoff");
+    RenameThread("calm-shutoff");
 
     bool fFirstThread = false;
     {
@@ -141,10 +141,10 @@ bool AppInit(int argc, char* argv[])
             // First part of help message is specific to bitcoind / RPC client
             std::string strUsage = _("Magi version") + " " + FormatFullVersion() + "\n\n" +
                 _("Usage:") + "\n" +
-                  "  magid [options]                     " + "\n" +
-                  "  magid [options] <command> [params]  " + _("Send command to -server or magid") + "\n" +
-                  "  magid [options] help                " + _("List commands") + "\n" +
-                  "  magid [options] help <command>      " + _("Get help for a command") + "\n";
+                  "  calmd [options]                     " + "\n" +
+                  "  calmd [options] <command> [params]  " + _("Send command to -server or calmd") + "\n" +
+                  "  calmd [options] help                " + _("List commands") + "\n" +
+                  "  calmd [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessage();
 
@@ -222,8 +222,8 @@ std::string HelpMessage()
 {
     string strUsage = _("Options:") + "\n" +
         "  -?                     " + _("This help message") + "\n" +
-        "  -conf=<file>           " + _("Specify configuration file (default: magi.conf)") + "\n" +
-        "  -pid=<file>            " + _("Specify pid file (default: magid.pid)") + "\n" +
+        "  -conf=<file>           " + _("Specify configuration file (default: calm.conf)") + "\n" +
+        "  -pid=<file>            " + _("Specify pid file (default: calmd.pid)") + "\n" +
         "  -gen                   " + _("Generate coins") + "\n" +
         "  -gen=0                 " + _("Don't generate coins") + "\n" +
         "  -posii                 " + _("Stake coins - PoS-II") + "\n" +
@@ -400,8 +400,8 @@ bool AppInit2()
     // ********************************************************* Step 3: parameter-to-internal-flags
 
     fDebug = GetBoolArg("-debug");
-    fDebugMagi = GetBoolArg("-debugmagi");
-    fDebugMagiPoS = GetBoolArg("-debugmagipos");
+    fDebugMagi = GetBoolArg("-debugcalm");
+    fDebugMagiPoS = GetBoolArg("-debugcalmpos");
     if (fDebug) printf("fDebug enabled...\n");
     if (fDebugMagi) printf("fDebugMagi enabled...\n");
     if (fDebugMagiPoS) printf("fDebugMagiPoS enabled...\n");
@@ -906,7 +906,7 @@ bool AppInit2()
 
 std::string LicenseInfo(bool f1, bool f2)
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/magi-project/magi>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/calm-project/calm>";
     const std::string URL_WEBSITE = "<http://m-core.org>";
     const std::string additionalInfo = "Magi (XMG) is an online payment system, enabling instant payments to anyone in the world without using an intermediary. Magi coins can be minted by computational devices including personal computers and portable devices through mPoW and mPoS. Magi aims at fairness, cost effective and energy efficiency during coin minting.";
 

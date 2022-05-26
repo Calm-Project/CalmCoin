@@ -1,7 +1,7 @@
 #include "optionsdialog.h"
 #include "ui_optionsdialog.h"
 
-#include "magiunits.h"
+#include "calmunits.h"
 #include "monitoreddatamapper.h"
 #include "netbase.h"
 #include "optionsmodel.h"

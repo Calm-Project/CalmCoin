@@ -558,12 +558,12 @@ bool CAddrDB::Read(CAddrMan& addr)
 
     unsigned char pchMsgTmp[4];
     try {
-        // de-serialize file header (pchMessageStart magic number) and
+        // de-serialize file header (pchMessageStart calmc number) and
         ssPeers >> FLATDATA(pchMsgTmp);
 
         // verify the network matches ours
         if (memcmp(pchMsgTmp, pchMessageStart, sizeof(pchMsgTmp)))
-            return error("CAddrman::Read() : invalid network magic number");
+            return error("CAddrman::Read() : invalid network calmc number");
 
         // de-serialize address data into one CAddrMan object
         ssPeers >> addr;

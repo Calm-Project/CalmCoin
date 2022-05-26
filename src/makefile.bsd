@@ -138,7 +138,7 @@ OBJS= \
     obj/main.o \
     obj/net.o \
     obj/protocol.o \
-    obj/magirpc.o \
+    obj/calmrpc.o \
     obj/rpcdump.o \
     obj/rpcnet.o \
     obj/rpcmining.o \
@@ -160,9 +160,9 @@ OBJS= \
     obj/sha2big.o \
     obj/tiger.o \
     obj/whirlpool.o \
-    obj/magimath.o
+    obj/calmmath.o
     
-all: magid
+all: calmd
 
 # LevelDB
 LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
@@ -173,8 +173,8 @@ leveldb/libleveldb.a:
 	@echo "Building LevelDB ..."; cd leveldb; make libleveldb.a libmemenv.a; cd ..;
 obj/txdb.o: leveldb/libleveldb.a
 
-test check: test_magi FORCE
-	./test_magi
+test check: test_calm FORCE
+	./test_calm
 
 # auto-generated dependencies:
 -include obj/*.P
@@ -213,7 +213,7 @@ obj/%.o: hash/%.c
 	      -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
 	  rm -f $(@:%.o=%.d)
 
-magid: $(OBJS:obj/%=obj/%)
+calmd: $(OBJS:obj/%=obj/%)
 	$(LINK) $(xCXXFLAGS) -o $@ $(LIBPATHS) $^ $(xLDFLAGS) $(LIBS)
 
 TESTOBJS := $(patsubst test/%.cpp,obj-test/%.o,$(wildcard test/*.cpp))
@@ -225,11 +225,11 @@ obj-test/%.o: test/%.cpp
 	      -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
 	  rm -f $(@:%.o=%.d)
 
-test_magi: $(TESTOBJS) $(filter-out obj/init.o,$(OBJS:obj/%=obj/%))
+test_calm: $(TESTOBJS) $(filter-out obj/init.o,$(OBJS:obj/%=obj/%))
 	$(LINK) $(xCXXFLAGS) -o $@ $(LIBPATHS) $^ -Wl,-B$(LMODE) -lboost_unit_test_framework $(xLDFLAGS) $(LIBS)
 
 clean:
-	-rm -f magid test_magi
+	-rm -f calmd test_calm
 	-rm -f obj/*.o
 	-rm -f obj-test/*.o
 	-rm -f obj/*.P

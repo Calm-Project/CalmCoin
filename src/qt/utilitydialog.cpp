@@ -2,7 +2,7 @@
 
 #include "ui_helpmessagedialog.h"
 
-#include "magigui.h"
+#include "calmgui.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"
@@ -38,7 +38,7 @@ HelpMessageDialog::~HelpMessageDialog()
 {
     switch (nwhich)
     {
-        case 1: // about coin magi
+        case 1: // about coin calm
             GUIUtil::saveWindowGeometry("nHelpMessageDialogWindow", this);
             break;
         case 2: // about mPoW
@@ -58,7 +58,7 @@ void HelpMessageDialog::startExecutor()
 {
     switch (nwhich)
     {
-        case 1: // about coin magi
+        case 1: // about coin calm
             ui->aboutLogo->setPixmap(QIcon(":/images/about").pixmap(HELPMESSAGE_ICONSIZE,HELPMESSAGE_ICONSIZE));
             showAboutCoinMagi();
             break;
@@ -109,7 +109,7 @@ void HelpMessageDialog::showAboutCoinMagi()
 void HelpMessageDialog::showAboutmPoW()
 {
     /// HTML-format the license message from the core
-    QString info = "mPoW, the magi's proof-of-work (PoW) protocol, in addition to required computational works to be done to deter denial of service attacks, is also a network-dependent rewarding model system. The mPoW rewards participants who solve complicated cryptographical questions not only to validate transactions but also to create new blocks and generate coins. The amout of coins generated are constantly monitored by the mPoW protocol and tuned on the basis of an attraction-repulsion model: 1) incremental rewarding to stimulate network activities during passive mining phase, and 2) decremental rewarding to mitigate redundant mining sources during agressive mining phase. mPoW can effectively govern the magi's network and limit it under a certain scale, enabling the general devices to be capable of mining magi. + \n\n + For details - <https://arxiv.org/abs/1409.7948>: A network-dependent rewarding system: proof-of-mining";
+    QString info = "mPoW, the calm's proof-of-work (PoW) protocol, in addition to required computational works to be done to deter denial of service attacks, is also a network-dependent rewarding model system. The mPoW rewards participants who solve complicated cryptographical questions not only to validate transactions but also to create new blocks and generate coins. The amout of coins generated are constantly monitored by the mPoW protocol and tuned on the basis of an attraction-repulsion model: 1) incremental rewarding to stimulate network activities during passive mining phase, and 2) decremental rewarding to mitigate redundant mining sources during agressive mining phase. mPoW can effectively govern the calm's network and limit it under a certain scale, enabling the general devices to be capable of mining calm. + \n\n + For details - <https://arxiv.org/abs/1409.7948>: A network-dependent rewarding system: proof-of-mining";
 
     QString infoHTML = info;
     // Make URLs clickable
@@ -130,7 +130,7 @@ void HelpMessageDialog::showAboutmPoW()
 void HelpMessageDialog::showAboutmPoS()
 {
     /// HTML-format the license message from the core
-    QString info = "mPoS, the magi's proof-of-stake (PoS) protocol, aims to achieve distributed consensus through operations in addition to mPoW. mPoS is designed such that it rejects potential attacks through accumulating a large amount of coins or offline staking time, either of which leads to security concerns. Similar to mPoW's operation, mPoS is constructed in accordance with the concept of the attraction-repulsion model. Magi hybridizes mPoW with mPoS, and integrate both consensus approaches in order to acquire benefits from the two mechanisms and create a more robust payment system.";
+    QString info = "mPoS, the calm's proof-of-stake (PoS) protocol, aims to achieve distributed consensus through operations in addition to mPoW. mPoS is designed such that it rejects potential attacks through accumulating a large amount of coins or offline staking time, either of which leads to security concerns. Similar to mPoW's operation, mPoS is constructed in accordance with the concept of the attraction-repulsion model. Magi hybridizes mPoW with mPoS, and integrate both consensus approaches in order to acquire benefits from the two mechanisms and create a more robust payment system.";
 
     QString infoHTML = info;
     // Make URLs clickable

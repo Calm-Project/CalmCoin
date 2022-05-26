@@ -6,7 +6,7 @@
 #include "walletmodel.h"
 #include "optionsmodel.h"
 #include "addresstablemodel.h"
-#include "magiunits.h"
+#include "calmunits.h"
 
 #include "wallet.h"
 #include "ui_interface.h"

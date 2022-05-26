@@ -1607,7 +1607,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
                  * number of coins in stake comes greater chance of (PoS) mining blocks. This is not going to 
                  * happen in Magi. Also, hardening nStakeCombineThreshold is impractical since an advanced user 
                  * can easilly make a change to that and rebuild a wallet. The change to nStakeCombineThreshold 
-                 * should be available externally, e.g., RPC command, magi.conf configuration file. 
+                 * should be available externally, e.g., RPC command, calm.conf configuration file. 
                  ** Magi, for optimum staking, nStakeCombineThreshold should be used in combination with nStakeSplitThreshold.*/
                 if (nCredit > nStakeCombineThreshold * COIN)
                     break;

@@ -1,2 +1,2 @@
-debian/bin/magid usr/bin
-src/magid usr/lib/magi
+debian/bin/calmd usr/bin
+src/calmd usr/lib/calm

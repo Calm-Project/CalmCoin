@@ -409,7 +409,7 @@ bool GetMyExternalIP(CNetAddr& ipRet)
 void ThreadGetMyExternalIP(void* parg)
 {
     // Make this thread recognisable as the external IP detection thread
-    RenameThread("magi-ext-ip");
+    RenameThread("calm-ext-ip");
 
     CNetAddr addrLocalHost;
     if (GetMyExternalIP(addrLocalHost))
@@ -646,7 +646,7 @@ void CNode::copyStats(CNodeStats &stats)
 void ThreadSocketHandler(void* parg)
 {
     // Make this thread recognisable as the networking thread
-    RenameThread("magi-net");
+    RenameThread("calm-net");
 
     try
     {
@@ -1005,7 +1005,7 @@ void ThreadSocketHandler2(void* parg)
 void ThreadMapPort(void* parg)
 {
     // Make this thread recognisable as the UPnP thread
-    RenameThread("magi-UPnP");
+    RenameThread("calm-UPnP");
 
     try
     {
@@ -1157,21 +1157,21 @@ void MapPort()
 static const char *strMainNetDNSSeed[] = {
     "seed.m-core.org",
     "seed.m-chain.info",
-    "seed.magi.filoozom.com",
+    "seed.calm.filoozom.com",
     "seed.systms.org"
 };
 
 static const char *strTestNetDNSSeed[] = {
     "test-seed.m-core.org",
     "test-seed.m-chain.info",
-    "test-seed.magi.filoozom.com",
+    "test-seed.calm.filoozom.com",
     "test-seed.systms.org"
 };
 
 void ThreadDNSAddressSeed(void* parg)
 {
     // Make this thread recognisable as the DNS seeding thread
-    RenameThread("magi-dnsseed");
+    RenameThread("calm-dnsseed");
 
     try
     {
@@ -1256,7 +1256,7 @@ void ThreadDumpAddress2(void* parg)
 void ThreadDumpAddress(void* parg)
 {
     // Make this thread recognisable as the address dumping thread
-    RenameThread("magi-adrdump");
+    RenameThread("calm-adrdump");
 
     try
     {
@@ -1271,7 +1271,7 @@ void ThreadDumpAddress(void* parg)
 void ThreadOpenConnections(void* parg)
 {
     // Make this thread recognisable as the connection opening thread
-    RenameThread("magi-opencon");
+    RenameThread("calm-opencon");
 
     try
     {
@@ -1453,7 +1453,7 @@ void ThreadOpenConnections2(void* parg)
 void ThreadOpenAddedConnections(void* parg)
 {
     // Make this thread recognisable as the connection opening thread
-    RenameThread("magi-opencon");
+    RenameThread("calm-opencon");
 
     try
     {
@@ -1584,7 +1584,7 @@ bool OpenNetworkConnection(const CAddress& addrConnect, CSemaphoreGrant *grantOu
 void ThreadMessageHandler(void* parg)
 {
     // Make this thread recognisable as the message handling thread
-    RenameThread("magi-msghand");
+    RenameThread("calm-msghand");
 
     try
     {
@@ -1835,7 +1835,7 @@ void static Discover()
 void StartNode(void* parg)
 {
     // Make this thread recognisable as the startup thread
-    RenameThread("magi-start");
+    RenameThread("calm-start");
 
     if (semOutbound == NULL) {
         // initialize semaphore

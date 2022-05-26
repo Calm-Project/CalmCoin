@@ -46,7 +46,7 @@ private slots:
     void on_tabWidget_currentChanged(int index);
     /** open the debug.log from the current datadir */
     void on_openDebugLogfileButton_clicked();
-    /** display messagebox with program parameters (same as magi-qt --help) */
+    /** display messagebox with program parameters (same as calm-qt --help) */
     void on_showCLOptionsButton_clicked();
 
 public slots:

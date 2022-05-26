@@ -1,4 +1,4 @@
-Name Magi
+Name Calmcoin
 
 RequestExecutionLevel highest
 SetCompressor /SOLID lzma
@@ -6,11 +6,11 @@ SetCompressor /SOLID lzma
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
 !define VERSION 1.0.0.1
-!define COMPANY "Magi project"
-!define URL http://www.cryptomagic.com
+!define COMPANY "Calmcoin project"
+!define URL http://www.cryptocalmc.com
 
 # MUI Symbol Definitions
-!define MUI_ICON "../share/pixmaps/Magi.ico"
+!define MUI_ICON "../share/pixmaps/Calmcoin.ico"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "../share/pixmaps/nsis-wizard.bmp"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
@@ -19,8 +19,8 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
-!define MUI_STARTMENUPAGE_DEFAULTFOLDER Magi
-!define MUI_FINISHPAGE_RUN $INSTDIR\magi-qt.exe
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER Calmcoin
+!define MUI_FINISHPAGE_RUN $INSTDIR\calm-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "../share/pixmaps/nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
@@ -45,14 +45,14 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile Magi-0.3.0-win32-setup.exe
-InstallDir $PROGRAMFILES\Magi
+OutFile Calmcoin-0.3.0-win32-setup.exe
+InstallDir $PROGRAMFILES\Calmcoin
 CRCCheck on
 XPStyle on
 BrandingText " "
 ShowInstDetails show
 VIProductVersion 1.0.0.1
-VIAddVersionKey ProductName Magi
+VIAddVersionKey ProductName Calmcoin
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
 VIAddVersionKey CompanyWebsite "${URL}"
@@ -66,18 +66,18 @@ ShowUninstDetails show
 Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
-    File ../release/magi-qt.exe
+    File ../release/calm-qt.exe
     File /oname=license.txt ../COPYING
     File /oname=readme.txt ../doc/README_windows.txt
     SetOutPath $INSTDIR\daemon
-    File ../src/magid.exe
+    File ../src/calmd.exe
     SetOutPath $INSTDIR\src
     File /r /x *.exe /x *.o ../src\*.*
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 
-    # Remove old wxwidgets-based-magi executable and locales:
-    Delete /REBOOTOK $INSTDIR\magi.exe
+    # Remove old wxwidgets-based-calm executable and locales:
+    Delete /REBOOTOK $INSTDIR\calm.exe
     RMDir /r /REBOOTOK $INSTDIR\locale
 SectionEnd
 
@@ -87,8 +87,8 @@ Section -post SEC0001
     WriteUninstaller $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     CreateDirectory $SMPROGRAMS\$StartMenuGroup
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Magi.lnk" $INSTDIR\magi-qt.exe
-    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall Magi.lnk" $INSTDIR\uninstall.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Calmcoin.lnk" $INSTDIR\calm-qt.exe
+    CreateShortcut "$SMPROGRAMS\$StartMenuGroup\Uninstall Calmcoin.lnk" $INSTDIR\uninstall.exe
     !insertmacro MUI_STARTMENU_WRITE_END
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayName "$(^Name)"
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" DisplayVersion "${VERSION}"
@@ -99,11 +99,11 @@ Section -post SEC0001
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
 
-    # Magi: URI handling disabled for 0.6.0
-        WriteRegStr HKCR "Magi" "URL Protocol" ""
-        WriteRegStr HKCR "Magi" "" "URL:Magi"
-        WriteRegStr HKCR "Magi\DefaultIcon" "" $INSTDIR\magi-qt.exe
-        WriteRegStr HKCR "Magi\shell\open\command" "" '"$INSTDIR\magi-qt.exe" "$$1"'
+    # Calmcoin: URI handling disabled for 0.6.0
+        WriteRegStr HKCR "Calmcoin" "URL Protocol" ""
+        WriteRegStr HKCR "Calmcoin" "" "URL:Calmcoin"
+        WriteRegStr HKCR "Calmcoin\DefaultIcon" "" $INSTDIR\calm-qt.exe
+        WriteRegStr HKCR "Calmcoin\shell\open\command" "" '"$INSTDIR\calm-qt.exe" "$$1"'
 SectionEnd
 
 # Macro for selecting uninstaller sections
@@ -121,7 +121,7 @@ done${UNSECTION_ID}:
 
 # Uninstaller sections
 Section /o -un.Main UNSEC0000
-    Delete /REBOOTOK $INSTDIR\magi-qt.exe
+    Delete /REBOOTOK $INSTDIR\calm-qt.exe
     Delete /REBOOTOK $INSTDIR\license.txt
     Delete /REBOOTOK $INSTDIR\readme.txt
     RMDir /r /REBOOTOK $INSTDIR\daemon
@@ -131,9 +131,9 @@ SectionEnd
 
 Section -un.post UNSEC0001
     DeleteRegKey HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)"
-    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall Magi.lnk"
-    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Magi.lnk"
-    Delete /REBOOTOK "$SMSTARTUP\Magi.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Uninstall Calmcoin.lnk"
+    Delete /REBOOTOK "$SMPROGRAMS\$StartMenuGroup\Calmcoin.lnk"
+    Delete /REBOOTOK "$SMSTARTUP\Calmcoin.lnk"
     Delete /REBOOTOK $INSTDIR\uninstall.exe
     Delete /REBOOTOK $INSTDIR\debug.log
     Delete /REBOOTOK $INSTDIR\db.log
@@ -141,7 +141,7 @@ Section -un.post UNSEC0001
     DeleteRegValue HKCU "${REGKEY}" Path
     DeleteRegKey /IfEmpty HKCU "${REGKEY}\Components"
     DeleteRegKey /IfEmpty HKCU "${REGKEY}"
-    DeleteRegKey HKCR "Magi"
+    DeleteRegKey HKCR "Calmcoin"
     RmDir /REBOOTOK $SMPROGRAMS\$StartMenuGroup
     RmDir /REBOOTOK $INSTDIR
     Push $R0

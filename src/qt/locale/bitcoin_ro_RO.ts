@@ -235,7 +235,7 @@
     </message>
     <message>
         <source>&amp;Overview</source>
-        <translation>&amp;Imagine de ansamblu</translation>
+        <translation>&amp;Icalmne de ansamblu</translation>
     </message>
     <message>
         <source>Node</source>
@@ -1360,11 +1360,11 @@
     <name>QRImageWidget</name>
     <message>
         <source>&amp;Save Image...</source>
-        <translation>&amp;Salvează imagine...</translation>
+        <translation>&amp;Salvează icalmne...</translation>
     </message>
     <message>
         <source>&amp;Copy Image</source>
-        <translation>&amp;Copiază imaginea</translation>
+        <translation>&amp;Copiază icalmnea</translation>
     </message>
     <message>
         <source>Save QR Code</source>
@@ -1372,7 +1372,7 @@
     </message>
     <message>
         <source>PNG Image (*.png)</source>
-        <translation>Imagine de tip PNG (*.png)</translation>
+        <translation>Icalmne de tip PNG (*.png)</translation>
     </message>
 </context>
 <context>
@@ -1673,7 +1673,7 @@
     </message>
     <message>
         <source>&amp;Save Image...</source>
-        <translation>&amp;Salvează imaginea...</translation>
+        <translation>&amp;Salvează icalmnea...</translation>
     </message>
     <message>
         <source>Request payment to %1</source>

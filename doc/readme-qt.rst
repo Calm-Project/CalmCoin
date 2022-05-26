@@ -42,9 +42,9 @@ then execute the following:
     qmake
     make
 
-Alternatively, install Qt Creator and open the `magi-qt.pro` file.
+Alternatively, install Qt Creator and open the `calm-qt.pro` file.
 
-An executable named `magi-qt` will be built.
+An executable named `calm-qt` will be built.
 
 
 Windows
